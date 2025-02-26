@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lista de Conversas</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 2rem;
+      }
+      h1, h2 {
+        margin-bottom: 0.3rem;
+      }
+      .conversation {
+        border: 1px solid #aaa;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Conversas</h1>
+    <div id="app">Carregando...</div>
+
+    <script>
+      async function loadConversations() {
+        try {
+          const response = await fetch('/conversations/');
+          if (!response.ok) {
+            document.getElementById('app').textContent = 'Erro ao carregar conversas.';
+            return;
+          }
+          const data = await response.json();
+
+        
+          const appDiv = document.getElementById('app');
+          appDiv.innerHTML = ''; 
+
+          if (data.length === 0) {
+            appDiv.textContent = 'Não há conversas ainda.';
+            return;
+          }
+
+          data.forEach((conv) => {
+
+            const conversationDiv = document.createElement('div');
+            conversationDiv.className = 'conversation';
+            const h2 = document.createElement('h2');
+            h2.innerText = `Conversa: ${conv.id} - [${conv.state}]`;
+            conversationDiv.appendChild(h2);
+
+            if (conv.messages.length > 0) {
+              const ul = document.createElement('ul');
+              conv.messages.forEach((msg) => {
+                const li = document.createElement('li');
+                li.textContent = `[${msg.direction}] ${msg.content}`;
+                ul.appendChild(li);
+              });
+              conversationDiv.appendChild(ul);
+            } else {
+              const p = document.createElement('p');
+              p.textContent = 'Não há mensagens nesta conversa.';
+              conversationDiv.appendChild(p);
+            }
+
+            appDiv.appendChild(conversationDiv);
+          });
+        } catch (error) {
+          console.error(error);
+          document.getElementById('app').textContent = 'Ocorreu um erro inesperado.';
+        }
+      }
+
+      loadConversations();
+    </script>
+  </body>
+</html>

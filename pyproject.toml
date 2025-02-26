@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "realmate-challenge"
+version = "0.1.0"
+description = "API para processar webhooks de atendimento via WhatsApp"
+authors = ["Seu Nome <seuemail@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4.2"
+djangorestframework = "^3.14.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
