@@ -78,7 +78,4 @@ Acesse `http://127.0.0.1:8000/front/` no navegador.
 - Conversa comeca em estado `OPEN`.
 - Se a conversa esta `CLOSED`, nao pode receber novas mensagens.
 - A mensagem precisa referenciar uma conversa existente.
-## 7. Contribuicao e Fork
-Para enviar o desafio, faca fork deste repositorio e altere conforme seu desenvolvimento.
-## 8. Licenca
-(opcional)
+
