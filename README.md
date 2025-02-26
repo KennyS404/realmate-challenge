@@ -2,7 +2,7 @@
 # Realmate Challenge
 Este projeto foi criado para cumprir o desafio da Realmate, que consiste em desenvolver uma API que recebe eventos
 (webhooks) de um sistema de atendimentos via WhatsApp, registrando conversas e mensagens em um banco de
-dados SQLite, e expondo um endpoint para consultas. De forma opcional, foi criado tambem um front-end simples em
+dados SQLite, e expondo um endpoint para consultas. De forma opcional, foi criado tambem um front-end bem humilde em
 HTML/JS que lista as conversas e mensagens.
 ## Tecnologias
 - Python 3.8+
@@ -30,7 +30,7 @@ conversas, seus estados e mensagens numa listagem.
 ### 3.2. Passos
 1. **Clone ou faca o download do repositorio:**
  ```bash
- git clone https://github.com/SEU-USUARIO/realmate-challenge.git
+ git clone https://github.com/kennys404/realmate-challenge.git
  cd realmate-challenge
  ```
 2. **Instale as dependencias com Poetry:**
